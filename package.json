@@ -1,0 +1,10 @@
+{
+  "name": "render-nodered",
+  "scripts": {
+    "start": "node-red --port $PORT --settings settings.js"
+  },
+  "dependencies": {
+    "node-red": "latest",
+    "node-red-dashboard": "latest"
+  }
+}
