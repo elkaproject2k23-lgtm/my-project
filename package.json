@@ -1,10 +1,13 @@
 {
-  "name": "render-nodered",
-  "scripts": {
-    "start": "node-red --port $PORT --settings settings.js"
-  },
+  "name": "node-red-render",
+  "description": "Node-RED on Render",
+  "version": "1.0.0",
   "dependencies": {
     "node-red": "latest",
-    "node-red-dashboard": "latest"
+    "node-red-dashboard": "latest",
+    "node-red-contrib-firebase-realtime": "latest"
+  },
+  "scripts": {
+    "start": "node-red --port $PORT --settings settings.js"
   }
 }
