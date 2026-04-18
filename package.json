@@ -2,7 +2,7 @@
   "name": "monitoring-akustik",
   "version": "1.0.0",
   "scripts": {
-    "start": "node-red --settings ./settings.js"
+    "start": "node-red --port $PORT --settings ./settings.js"
   },
   "dependencies": {
     "node-red": "^3.1.0",
