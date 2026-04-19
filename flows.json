@@ -1,0 +1,402 @@
+[
+    {
+        "id": "4e87f9af348f71da",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "g1",
+        "type": "ui_group",
+        "name": "Data Intensitas Bunyi",
+        "tab": "t1",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "t1",
+        "type": "ui_tab",
+        "name": "Monitoring Akustik",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "37fe2d20b9af6f6b",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#026992",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#026992",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#026992",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#039fdd",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#026992",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "b1cc787b80ebc526",
+        "type": "inject",
+        "z": "4e87f9af348f71da",
+        "name": "Pemicu 1s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "f3cb696b040995c0",
+                "9f2bfc70bd14c22c"
+            ]
+        ]
+    },
+    {
+        "id": "f3cb696b040995c0",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Format Waktu",
+        "func": "const opsi = { \n    weekday: 'long', \n    day: 'numeric', \n    month: 'long', \n    year: 'numeric', \n    hour: '2-digit', \n    minute: '2-digit',\n    timeZone: 'Asia/Makassar'\n};\nmsg.payload = new Date().toLocaleString('id-ID', opsi);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 80,
+        "wires": [
+            [
+                "6279bee704b8740b"
+            ]
+        ]
+    },
+    {
+        "id": "9f2bfc70bd14c22c",
+        "type": "http request",
+        "z": "4e87f9af348f71da",
+        "name": "Ambil Data Firebase",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://monitoring-akustik-809d8-default-rtdb.asia-southeast1.firebasedatabase.app/Monitoring/Bunyi.json",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "6af1b4f0d14399dc",
+                "482cb9f789a6a146",
+                "9d476bdecd496a2b",
+                "e00ee5fe2ee3571a",
+                "08d62671bfde60bd"
+            ]
+        ]
+    },
+    {
+        "id": "6279bee704b8740b",
+        "type": "ui_template",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "name": "Judul",
+        "order": 1,
+        "width": 12,
+        "height": 2,
+        "format": "<div style=\"text-align: center; width: 100%;\">\n    <h2 style=\"font-weight: bold; margin: 0;\">MONITORING AKTIVITAS AKUSTIK</h2>\n    <h4 style=\"margin: 5px 0;\">{{msg.payload}}</h4>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 570,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6af1b4f0d14399dc",
+        "type": "ui_gauge",
+        "z": "4e87f9af348f71da",
+        "name": "",
+        "group": "g1",
+        "order": 2,
+        "width": "12",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Intensitas (dB)",
+        "label": "dB",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 120,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 600,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "072f5f3a092fa7ea",
+        "type": "ui_text",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "order": 3,
+        "width": "4",
+        "height": 2,
+        "name": "",
+        "label": "Min :",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 750,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f6ccc2f582aefd99",
+        "type": "ui_text",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "order": 4,
+        "width": "4",
+        "height": 2,
+        "name": "",
+        "label": "Avg :",
+        "format": "{{msg.payload}} dB",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 750,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "91fcdcd554867cb5",
+        "type": "ui_text",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "order": 5,
+        "width": "4",
+        "height": 2,
+        "name": "",
+        "label": "Max :",
+        "format": "{{msg.payload}} dB",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 750,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "482cb9f789a6a146",
+        "type": "ui_chart",
+        "z": "4e87f9af348f71da",
+        "name": "",
+        "group": "g1",
+        "order": 6,
+        "width": 12,
+        "height": "5",
+        "label": "Grafik Tingkat Intensitas Bunyi",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "120",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#0d5182",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 650,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d476bdecd496a2b",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Cek Max",
+        "func": "let max = context.get('max') || 0;\nlet val = parseFloat(msg.payload);\nif (val > max) {\n    max = val;\n    context.set('max', max);\n}\nmsg.payload = max;\nreturn msg;",
+        "outputs": 1,
+        "x": 580,
+        "y": 260,
+        "wires": [
+            [
+                "91fcdcd554867cb5"
+            ]
+        ]
+    },
+    {
+        "id": "e00ee5fe2ee3571a",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Hitung Avg",
+        "func": "let sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\nlet val = parseFloat(msg.payload);\nsum += val;\ncount += 1;\ncontext.set('sum', sum);\ncontext.set('count', count);\nmsg.payload = (sum / count).toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "x": 590,
+        "y": 320,
+        "wires": [
+            [
+                "f6ccc2f582aefd99"
+            ]
+        ]
+    },
+    {
+        "id": "08d62671bfde60bd",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Cek Min",
+        "func": "let min = context.get('min') || 120;\nlet val = parseFloat(msg.payload);\nif (val > 0 && val < min) {\n    min = val;\n    context.set('min', min);\n}\nmsg.payload = min;\nreturn msg;",
+        "outputs": 1,
+        "x": 580,
+        "y": 380,
+        "wires": [
+            [
+                "072f5f3a092fa7ea"
+            ]
+        ]
+    }
+]
