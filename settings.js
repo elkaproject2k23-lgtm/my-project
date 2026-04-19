@@ -4,9 +4,8 @@ module.exports = {
     userDir: '/tmp/node-red-data',
     nodesDir: '/tmp/node-red-data/nodes',
     
-    flowFile: 'flows.json',
+    flowFile: '/opt/render/project/src/flows.json',
     flowFilePretty: true,
-    
     
     editorTheme: {
         projects: {
