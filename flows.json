@@ -125,7 +125,7 @@
         "id": "b1cc787b80ebc526",
         "type": "inject",
         "z": "4e87f9af348f71da",
-        "name": "Pemicu 1s",
+        "name": "Pemicu 2s",
         "props": [
             {
                 "p": "payload"
@@ -135,10 +135,10 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "2",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "0.2",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -190,11 +190,10 @@
         "y": 180,
         "wires": [
             [
-                "6af1b4f0d14399dc",
-                "482cb9f789a6a146",
                 "9d476bdecd496a2b",
                 "e00ee5fe2ee3571a",
-                "08d62671bfde60bd"
+                "08d62671bfde60bd",
+                "da740d4e77854e11"
             ]
         ]
     },
@@ -218,34 +217,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "6af1b4f0d14399dc",
-        "type": "ui_gauge",
-        "z": "4e87f9af348f71da",
-        "name": "",
-        "group": "g1",
-        "order": 2,
-        "width": "12",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Intensitas (dB)",
-        "label": "dB",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 120,
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 600,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "072f5f3a092fa7ea",
@@ -311,56 +282,17 @@
         "wires": []
     },
     {
-        "id": "482cb9f789a6a146",
-        "type": "ui_chart",
-        "z": "4e87f9af348f71da",
-        "name": "",
-        "group": "g1",
-        "order": 6,
-        "width": 12,
-        "height": "5",
-        "label": "Grafik Tingkat Intensitas Bunyi",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "120",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": "",
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#0d5182",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 650,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "9d476bdecd496a2b",
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Max",
-        "func": "let max = context.get('max') || 0;\nlet val = parseFloat(msg.payload);\nif (val > max) {\n    max = val;\n    context.set('max', max);\n}\nmsg.payload = max;\nreturn msg;",
+        "func": "let max = context.get('max') || 0;\nlet val = parseFloat(msg.payload.dB);\nif (val > max) {\n    max = val;\n    context.set('max', max);\n}\nmsg.payload = max;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 580,
         "y": 260,
         "wires": [
@@ -374,8 +306,13 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Hitung Avg",
-        "func": "let sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\nlet val = parseFloat(msg.payload);\nsum += val;\ncount += 1;\ncontext.set('sum', sum);\ncontext.set('count', count);\nmsg.payload = (sum / count).toFixed(2);\nreturn msg;",
+        "func": "let sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\nlet val = parseFloat(msg.payload.dB);\nsum += val;\ncount += 1;\ncontext.set('sum', sum);\ncontext.set('count', count);\nmsg.payload = (sum / count).toFixed(2);\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 590,
         "y": 320,
         "wires": [
@@ -389,14 +326,112 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Min",
-        "func": "let min = context.get('min') || 120;\nlet val = parseFloat(msg.payload);\nif (val > 0 && val < min) {\n    min = val;\n    context.set('min', min);\n}\nmsg.payload = min;\nreturn msg;",
+        "func": "let min = context.get('min') || 120;\nlet val = parseFloat(msg.payload.dB);\nif (val > 0 && val < min) {\n    min = val;\n    context.set('min', min);\n}\nmsg.payload = min;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 580,
         "y": 380,
         "wires": [
             [
                 "072f5f3a092fa7ea"
             ]
+        ]
+    },
+    {
+        "id": "da740d4e77854e11",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Ambil dB",
+        "func": "msg.payload = msg.payload.dB;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "1aceda858f1f80a5",
+                "5bd42decc7db72b6"
+            ]
+        ]
+    },
+    {
+        "id": "1aceda858f1f80a5",
+        "type": "ui_gauge",
+        "z": "4e87f9af348f71da",
+        "name": "",
+        "group": "g1",
+        "order": 5,
+        "width": "12",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Intensitas Bunyi (dB)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "120",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 780,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5bd42decc7db72b6",
+        "type": "ui_chart",
+        "z": "4e87f9af348f71da",
+        "name": "",
+        "group": "g1",
+        "order": 7,
+        "width": "12",
+        "height": "5",
+        "label": "Grafik Intensitas Bunyi (dB)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "120",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 200,
+        "wires": [
+            []
         ]
     }
 ]
