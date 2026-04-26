@@ -6,7 +6,6 @@
   },
   "dependencies": {
     "node-red": "^3.1.0",
-    "node-red-dashboard": "^3.6.0",
-    "node-red-contrib-firebase-realtime-database": "latest"
+    "node-red-dashboard": "^3.6.0"
   }
 }
