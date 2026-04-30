@@ -346,7 +346,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Ambil dB",
-        "func": "msg.payload = msg.payload.dB;\nreturn msg;",
+        "func": "msg.payload = Math.round(msg.payload.dB * 10) / 10;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
