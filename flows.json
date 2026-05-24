@@ -9,11 +9,11 @@
     {
         "id": "g1",
         "type": "ui_group",
-        "name": "Data Intensitas Bunyi",
+        "name": "",
         "tab": "t1",
         "order": 1,
         "disp": true,
-        "width": "12",
+        "width": "24",
         "collapse": false,
         "className": ""
     },
@@ -28,7 +28,7 @@
         "id": "37fe2d20b9af6f6b",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-custom",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#026992",
@@ -40,26 +40,28 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
                 "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                "baseColor": "#056b7f",
+                "baseFont": "Arial Black,Arial Black,Gadget,sans-serif",
+                "reset": false
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#026992",
+                    "default": "#057f0d",
+                    "value": "#056b7f",
                     "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#026992",
+                    "value": "#056b7f",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
+                    "value": "#111111",
                     "edited": false
                 },
                 "page-sidebar-backgroundColor": {
@@ -67,31 +69,31 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#039fdd",
+                    "value": "#08a9c9",
                     "edited": false
                 },
                 "group-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#555555",
                     "edited": false
                 },
                 "group-backgroundColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "widget-textColor": {
-                    "value": "#111111",
+                    "value": "#eeeeee",
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#026992",
+                    "value": "#056b7f",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                    "value": "Arial Black,Arial Black,Gadget,sans-serif"
                 }
             },
             "angularTheme": {
@@ -156,7 +158,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Format Waktu",
-        "func": "const opsi = { \n    weekday: 'long', \n    day: 'numeric', \n    month: 'long', \n    year: 'numeric', \n    hour: '2-digit', \n    minute: '2-digit',\n    timeZone: 'Asia/Makassar'\n};\nmsg.payload = new Date().toLocaleString('id-ID', opsi);\nreturn msg;",
+        "func": "msg.payload = new Date().toLocaleString('id-ID', {\n    weekday: 'long',  // Nama Hari\n    day: 'numeric',   // Tanggal\n    month: 'long',    // Bulan\n    year: 'numeric',  // Tahun\n    hour: '2-digit',  // Jam\n    minute: '2-digit', // Menit\n    timeZone: 'Asia/Makassar' // Zona Waktu WITA\n});\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -193,7 +195,8 @@
                 "9d476bdecd496a2b",
                 "e00ee5fe2ee3571a",
                 "08d62671bfde60bd",
-                "da740d4e77854e11"
+                "da740d4e77854e11",
+                "db4f32d4d4b65310"
             ]
         ]
     },
@@ -204,8 +207,8 @@
         "group": "g1",
         "name": "Judul",
         "order": 1,
-        "width": 12,
-        "height": 2,
+        "width": "24",
+        "height": "2",
         "format": "<div style=\"text-align: center; width: 100%;\">\n    <h2 style=\"font-weight: bold; margin: 0;\">MONITORING AKTIVITAS AKUSTIK</h2>\n    <h4 style=\"margin: 5px 0;\">{{msg.payload}}</h4>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
@@ -224,11 +227,11 @@
         "z": "4e87f9af348f71da",
         "group": "g1",
         "order": 3,
-        "width": "4",
+        "width": "8",
         "height": 2,
         "name": "",
         "label": "Min :",
-        "format": "{{msg.payload}}",
+        "format": "{{msg.payload}} ",
         "layout": "col-center",
         "className": "",
         "style": false,
@@ -236,7 +239,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 750,
-        "y": 380,
+        "y": 300,
         "wires": []
     },
     {
@@ -245,11 +248,11 @@
         "z": "4e87f9af348f71da",
         "group": "g1",
         "order": 4,
-        "width": "4",
+        "width": "8",
         "height": 2,
         "name": "",
         "label": "Avg :",
-        "format": "{{msg.payload}} dB",
+        "format": "{{msg.payload}} ",
         "layout": "col-center",
         "className": "",
         "style": false,
@@ -257,28 +260,7 @@
         "fontSize": "",
         "color": "#000000",
         "x": 750,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "91fcdcd554867cb5",
-        "type": "ui_text",
-        "z": "4e87f9af348f71da",
-        "group": "g1",
-        "order": 5,
-        "width": "4",
-        "height": 2,
-        "name": "",
-        "label": "Max :",
-        "format": "{{msg.payload}} dB",
-        "layout": "col-center",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 750,
-        "y": 260,
+        "y": 360,
         "wires": []
     },
     {
@@ -286,7 +268,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Max",
-        "func": "let max = context.get('max') || 120;\nlet val = msg.payload;\nif (val > max) {\n    max = val;\n    context.set('max', max);\n}\nmsg.payload = max.toFixed(1); \nreturn msg;",
+        "func": "// Ambil nilai max yang tersimpan\nlet max = context.get('max');\n\nlet val = parseFloat(msg.payload);\nif (!isNaN(val)) {\n    // Update max jika nilai baru lebih besar\n    if (max === undefined || val > max) {\n        max = val;\n        context.set('max', max);\n    }\n}\n\n// Kirim nilai max, jika belum ada kirim 0\nmsg.payload = max !== undefined ? parseFloat(max.toFixed(1)) : 0;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -294,10 +276,10 @@
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 260,
+        "y": 420,
         "wires": [
             [
-                "91fcdcd554867cb5"
+                "8847eb068a53642a"
             ]
         ]
     },
@@ -306,7 +288,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Hitung Avg",
-        "func": "let sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\nlet val = msg.payload;\nsum += val;\ncount += 1;\ncontext.set('sum', sum);\ncontext.set('count', count);\nmsg.payload = (sum / count).toFixed(1); \nreturn msg;",
+        "func": "// Ambil nilai sum dan count yang tersimpan\nlet sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\n\nlet val = parseFloat(msg.payload);\n\n// Hanya proses jika nilai valid\nif (!isNaN(val)) {\n    sum += val;\n    count += 1;\n    context.set('sum', sum);\n    context.set('count', count);\n}\n\n// Hitung rata-rata, kalau belum ada data kirim 0\nmsg.payload = count > 0 ? parseFloat((sum / count).toFixed(1)) : 0;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -314,7 +296,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "f6ccc2f582aefd99"
@@ -326,7 +308,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Min",
-        "func": "let min = context.get('min') || 0;\nlet val = msg.payload;\nif (val > 0 && val < min) {\n    min = val;\n    context.set('min', min);\n}\nmsg.payload = min.toFixed(1); \nreturn msg;",
+        "func": "// Ambil nilai min yang tersimpan\nlet min = context.get('min');\n\nlet val = parseFloat(msg.payload);\n\nif (!isNaN(val) && val > 0) {\n    // Update min jika nilai baru lebih kecil atau belum ada data\n    if (min === undefined || val < min) {\n        min = val;\n        context.set('min', min);\n    }\n}\n\n// Kirim nilai min, jika belum ada kirim 0\nmsg.payload = min !== undefined ? parseFloat(min.toFixed(1)) : 0;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -334,7 +316,7 @@
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 380,
+        "y": 300,
         "wires": [
             [
                 "072f5f3a092fa7ea"
@@ -346,7 +328,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Ambil dB",
-        "func": "msg.payload = Math.round(msg.payload.dB * 10) / 10;\nreturn msg;",
+        "func": "// Ambil nilai dB dari Firebase\nmsg.payload = Math.round(msg.payload.dB * 10) / 10;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -368,9 +350,9 @@
         "z": "4e87f9af348f71da",
         "name": "",
         "group": "g1",
-        "order": 5,
-        "width": "12",
-        "height": "3",
+        "order": 6,
+        "width": "24",
+        "height": 3,
         "gtype": "gage",
         "title": "Intensitas Bunyi (dB)",
         "label": "units",
@@ -386,7 +368,7 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 780,
+        "x": 800,
         "y": 140,
         "wires": []
     },
@@ -397,8 +379,8 @@
         "name": "",
         "group": "g1",
         "order": 7,
-        "width": "12",
-        "height": "5",
+        "width": "24",
+        "height": 5,
         "label": "Grafik Intensitas Bunyi (dB)",
         "chartType": "line",
         "legend": "false",
@@ -428,10 +410,72 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 800,
+        "x": 820,
         "y": 200,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "8847eb068a53642a",
+        "type": "ui_text",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "order": 5,
+        "width": "8",
+        "height": "2",
+        "name": "",
+        "label": "Max :",
+        "format": "{{msg.payload}} ",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 750,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "db4f32d4d4b65310",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Status",
+        "func": "var db = parseFloat(msg.payload);\nif (db >= 30) {\n    msg.payload = \"Aktif\";\n} else {\n    msg.payload = \"Tidak Aktif\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "ced51536a18541f3"
+            ]
+        ]
+    },
+    {
+        "id": "ced51536a18541f3",
+        "type": "ui_text",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "order": 2,
+        "width": "24",
+        "height": "1",
+        "name": "",
+        "label": "Status :",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 760,
+        "y": 240,
+        "wires": []
     }
 ]
