@@ -1,8 +1,8 @@
 module.exports = {
     uiPort: process.env.PORT || 1880,
     
-    userDir: '/tmp/node-red-data',
-    nodesDir: '/tmp/node-red-data/nodes',
+    userDir: '/opt/render/project/src/.node-red-data',
+    nodesDir: '/opt/render/project/src/.node-red-data/nodes',
     
     flowFile: '/opt/render/project/src/flows.json',
     flowFilePretty: true,
