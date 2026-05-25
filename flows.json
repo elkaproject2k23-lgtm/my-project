@@ -124,10 +124,15 @@
         }
     },
     {
+        "id": "45ed046743f02da0",
+        "type": "gauth",
+        "name": "render-monitoring@monitoring-aktivitas-akustik.iam.gserviceaccount.com"
+    },
+    {
         "id": "b1cc787b80ebc526",
         "type": "inject",
         "z": "4e87f9af348f71da",
-        "name": "Pemicu 2s",
+        "name": "Pemicu 5 menit",
         "props": [
             {
                 "p": "payload"
@@ -137,19 +142,18 @@
                 "vt": "str"
             }
         ],
-        "repeat": "2",
+        "repeat": "300",
         "crontab": "",
         "once": true,
-        "onceDelay": "0.2",
+        "onceDelay": "30",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 100,
+        "x": 150,
+        "y": 620,
         "wires": [
             [
-                "f3cb696b040995c0",
-                "9f2bfc70bd14c22c"
+                "6034c484d570b447"
             ]
         ]
     },
@@ -174,33 +178,6 @@
         ]
     },
     {
-        "id": "9f2bfc70bd14c22c",
-        "type": "http request",
-        "z": "4e87f9af348f71da",
-        "name": "Ambil Data Firebase",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "https://monitoring-akustik-809d8-default-rtdb.asia-southeast1.firebasedatabase.app/Monitoring/Bunyi.json",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 360,
-        "y": 180,
-        "wires": [
-            [
-                "9d476bdecd496a2b",
-                "e00ee5fe2ee3571a",
-                "08d62671bfde60bd",
-                "da740d4e77854e11",
-                "db4f32d4d4b65310"
-            ]
-        ]
-    },
-    {
         "id": "6279bee704b8740b",
         "type": "ui_template",
         "z": "4e87f9af348f71da",
@@ -215,7 +192,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 570,
+        "x": 550,
         "y": 80,
         "wires": [
             []
@@ -238,8 +215,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 750,
-        "y": 300,
+        "x": 690,
+        "y": 340,
         "wires": []
     },
     {
@@ -259,8 +236,8 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 750,
-        "y": 360,
+        "x": 690,
+        "y": 400,
         "wires": []
     },
     {
@@ -268,15 +245,15 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Max",
-        "func": "// Ambil nilai max yang tersimpan\nlet max = context.get('max');\n\nlet val = parseFloat(msg.payload);\nif (!isNaN(val)) {\n    // Update max jika nilai baru lebih besar\n    if (max === undefined || val > max) {\n        max = val;\n        context.set('max', max);\n    }\n}\n\n// Kirim nilai max, jika belum ada kirim 0\nmsg.payload = max !== undefined ? parseFloat(max.toFixed(1)) : 0;\nreturn msg;",
+        "func": "let max = context.get('max');\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val)) {\n    if (max === undefined || val > max) {\n        max = val;\n        context.set('max', max);\n    }\n}\n\nmsg.payload = max !== undefined ? parseFloat(max.toFixed(1)) : 0;\nglobal.set('max', msg.payload);\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 420,
+        "x": 520,
+        "y": 460,
         "wires": [
             [
                 "8847eb068a53642a"
@@ -288,15 +265,15 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Hitung Avg",
-        "func": "// Ambil nilai sum dan count yang tersimpan\nlet sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\n\nlet val = parseFloat(msg.payload);\n\n// Hanya proses jika nilai valid\nif (!isNaN(val)) {\n    sum += val;\n    count += 1;\n    context.set('sum', sum);\n    context.set('count', count);\n}\n\n// Hitung rata-rata, kalau belum ada data kirim 0\nmsg.payload = count > 0 ? parseFloat((sum / count).toFixed(1)) : 0;\nreturn msg;",
+        "func": "let sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val)) {\n    sum += val;\n    count += 1;\n    context.set('sum', sum);\n    context.set('count', count);\n}\n\nmsg.payload = count > 0 ? parseFloat((sum / count).toFixed(1)) : 0;\nglobal.set('avg', msg.payload);\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 360,
+        "x": 530,
+        "y": 400,
         "wires": [
             [
                 "f6ccc2f582aefd99"
@@ -308,15 +285,15 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Min",
-        "func": "// Ambil nilai min yang tersimpan\nlet min = context.get('min');\n\nlet val = parseFloat(msg.payload);\n\nif (!isNaN(val) && val > 0) {\n    // Update min jika nilai baru lebih kecil atau belum ada data\n    if (min === undefined || val < min) {\n        min = val;\n        context.set('min', min);\n    }\n}\n\n// Kirim nilai min, jika belum ada kirim 0\nmsg.payload = min !== undefined ? parseFloat(min.toFixed(1)) : 0;\nreturn msg;",
+        "func": "let min = context.get('min');\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val) && val > 0) {\n    if (min === undefined || val < min) {\n        min = val;\n        context.set('min', min);\n    }\n}\n\nmsg.payload = min !== undefined ? parseFloat(min.toFixed(1)) : 0;\nglobal.set('min', msg.payload);\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 300,
+        "x": 520,
+        "y": 340,
         "wires": [
             [
                 "072f5f3a092fa7ea"
@@ -328,15 +305,15 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Ambil dB",
-        "func": "// Ambil nilai dB dari Firebase\nmsg.payload = Math.round(msg.payload.dB * 10) / 10;\nreturn msg;",
+        "func": "msg.payload = Math.round(msg.payload.dB * 10) / 10;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 180,
+        "x": 520,
+        "y": 220,
         "wires": [
             [
                 "1aceda858f1f80a5",
@@ -368,8 +345,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 800,
-        "y": 140,
+        "x": 740,
+        "y": 180,
         "wires": []
     },
     {
@@ -410,8 +387,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 820,
-        "y": 200,
+        "x": 760,
+        "y": 240,
         "wires": [
             []
         ]
@@ -433,8 +410,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 750,
-        "y": 420,
+        "x": 690,
+        "y": 460,
         "wires": []
     },
     {
@@ -442,15 +419,15 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Status",
-        "func": "var db = parseFloat(msg.payload);\nif (db >= 30) {\n    msg.payload = \"Aktif\";\n} else {\n    msg.payload = \"Tidak Aktif\";\n}\nreturn msg;",
+        "func": "var db = parseFloat(msg.payload.dB);\nvar status;\n\nif (db < 30) {\n    status = \"Tidak Aktif\";\n} else if (db >= 30 && db <= 70) {\n    status = \"Aktif Normal\";\n} else {\n    status = \"Aktif Bising\";\n}\n\n// Simpan status ke global\nglobal.set('status', status);\nglobal.set('db', db);\n\nmsg.payload = status;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 240,
+        "x": 510,
+        "y": 280,
         "wires": [
             [
                 "ced51536a18541f3"
@@ -474,8 +451,197 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 760,
-        "y": 240,
+        "x": 700,
+        "y": 280,
         "wires": []
+    },
+    {
+        "id": "99e4e8fdde4ba64d",
+        "type": "GSheet",
+        "z": "4e87f9af348f71da",
+        "creds": "45ed046743f02da0",
+        "method": "append",
+        "action": "",
+        "sheet": "1r-rOnM-MQobAlbRmaClj2GKY_4h9eYjHDvdDTfiozMk",
+        "cells": "Sheet1!A:F",
+        "flatten": false,
+        "name": "Google Sheets",
+        "x": 740,
+        "y": 560,
+        "wires": [
+            [
+                "32a2ccd28f7ca26a"
+            ]
+        ]
+    },
+    {
+        "id": "db893d872bcbc563",
+        "type": "http in",
+        "z": "4e87f9af348f71da",
+        "name": "Terima Data ESP32",
+        "url": "/kirim-data",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "4401ec6161341744",
+                "34fab738e15ca048",
+                "da740d4e77854e11",
+                "db4f32d4d4b65310",
+                "08d62671bfde60bd",
+                "e00ee5fe2ee3571a",
+                "9d476bdecd496a2b"
+            ]
+        ]
+    },
+    {
+        "id": "34fab738e15ca048",
+        "type": "http response",
+        "z": "4e87f9af348f71da",
+        "name": "Respon ESP32",
+        "statusCode": "",
+        "headers": {},
+        "x": 540,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4401ec6161341744",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Pemantau alat",
+        "func": "// Catat waktu terakhir data masuk\nglobal.set('lastSeen', Date.now());\n\n// Set status alat = Aktif\nglobal.set('deviceStatus', 'Aktif');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "99e4e8fdde4ba64d"
+            ]
+        ]
+    },
+    {
+        "id": "6034c484d570b447",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Cek Status",
+        "func": "var deviceStatus = global.get('deviceStatus');\n\n// Hanya lanjut jika alat aktif\nif (deviceStatus === 'Aktif') {\n    return msg;\n}\n\n// Jika mati, diam saja\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 620,
+        "wires": [
+            [
+                "9921894b29c7575b"
+            ]
+        ]
+    },
+    {
+        "id": "9921894b29c7575b",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Siapkan Data",
+        "func": "let db = global.get('db') || 0;\nlet status = global.get('status') || 'Tidak Aktif';\nlet min = global.get('min') || 0;\nlet avg = global.get('avg') || 0;\nlet max = global.get('max') || 0;\n\nlet waktu = new Date().toLocaleString('id-ID', {\n    timeZone: 'Asia/Makassar'\n});\n\nmsg.payload = [[waktu, db, status, min, avg, max]];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "99e4e8fdde4ba64d"
+            ]
+        ]
+    },
+    {
+        "id": "32a2ccd28f7ca26a",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Reset Data",
+        "func": "// Reset semua nilai untuk periode berikutnya\nglobal.set('min', 0);\nglobal.set('avg', 0);\nglobal.set('max', 0);\nglobal.set('db', 0);\n\n// Reset context di node Cek Min, Hitung Avg, Cek Max\nflow.set('min', undefined);\nflow.set('sum', undefined);\nflow.set('count', undefined);\nflow.set('max', undefined);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5bfd1593158b28d6",
+        "type": "inject",
+        "z": "4e87f9af348f71da",
+        "name": "Pemicu 2 detik",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "f3cb696b040995c0"
+            ]
+        ]
+    },
+    {
+        "id": "df53fd22efaf0ff6",
+        "type": "inject",
+        "z": "4e87f9af348f71da",
+        "name": "Pemicu 30 detik",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "4401ec6161341744"
+            ]
+        ]
     }
 ]
