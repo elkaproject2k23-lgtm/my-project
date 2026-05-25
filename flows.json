@@ -513,7 +513,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Pemantau alat",
-        "func": "// Catat waktu terakhir data masuk\nglobal.set('lastSeen', Date.now());\n\n// Set status alat = Aktif\nglobal.set('deviceStatus', 'Aktif');\n\nreturn msg;",
+        "func": "// Catat waktu terakhir data masuk\nglobal.set('lastSeen', Date.now());\n\n// Set status alat = Aktif\nglobal.set('deviceStatus', 'Aktif');\n\nreturn null;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
