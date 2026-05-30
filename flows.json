@@ -1,742 +1,742 @@
-    [
-        {
-            "id": "4e87f9af348f71da",
-            "type": "tab",
-            "label": "Flow 1",
-            "disabled": false,
-            "info": ""
-        },
-        {
-            "id": "g1",
-            "type": "ui_group",
-            "name": "Header",
-            "tab": "t1",
-            "order": 1,
-            "disp": false,
-            "width": "18",
-            "collapse": false,
-            "className": ""
-        },
-        {
-            "id": "t1",
-            "type": "ui_tab",
-            "name": "Monitoring Aktivitas Akustik Bird Deterrent",
-            "icon": "dashboard",
-            "order": 1,
-            "disabled": false,
-            "hidden": false
-        },
-        {
-            "id": "37fe2d20b9af6f6b",
-            "type": "ui_base",
-            "theme": {
-                "name": "theme-custom",
-                "lightTheme": {
-                    "default": "#0094CE",
-                    "baseColor": "#17900e",
-                    "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                    "edited": false,
-                    "reset": false
+[
+    {
+        "id": "4e87f9af348f71da",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "g1",
+        "type": "ui_group",
+        "name": "Header",
+        "tab": "t1",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "t1",
+        "type": "ui_tab",
+        "name": "Bird Deterrent Acoustic Monitor",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "37fe2d20b9af6f6b",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-custom",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#17900e",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#16a34a",
+                "baseFont": "Arial,Arial,Helvetica,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#1d6f42",
+                "baseFont": "Gill Sans,Geneva,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#16a34a",
+                    "value": "#1d6f42",
+                    "edited": true
                 },
-                "darkTheme": {
-                    "default": "#097479",
-                    "baseColor": "#16a34a",
-                    "baseFont": "Arial,Arial,Helvetica,sans-serif",
-                    "edited": true,
-                    "reset": false
+                "page-titlebar-backgroundColor": {
+                    "value": "#1d6f42",
+                    "edited": true
                 },
-                "customTheme": {
-                    "name": "Untitled Theme 1",
-                    "default": "#4B7930",
-                    "baseColor": "#1d6f42",
-                    "baseFont": "Gill Sans,Geneva,sans-serif",
-                    "reset": false
+                "page-backgroundColor": {
+                    "value": "#f9fafb",
+                    "edited": true
                 },
-                "themeState": {
-                    "base-color": {
-                        "default": "#16a34a",
-                        "value": "#1d6f42",
-                        "edited": true
-                    },
-                    "page-titlebar-backgroundColor": {
-                        "value": "#1d6f42",
-                        "edited": true
-                    },
-                    "page-backgroundColor": {
-                        "value": "#f9fafb",
-                        "edited": true
-                    },
-                    "page-sidebar-backgroundColor": {
-                        "value": "#ffffff",
-                        "edited": true
-                    },
-                    "group-textColor": {
-                        "value": "#111827",
-                        "edited": true
-                    },
-                    "group-borderColor": {
-                        "value": "#e5e7eb",
-                        "edited": true
-                    },
-                    "group-backgroundColor": {
-                        "value": "#ffffff",
-                        "edited": true
-                    },
-                    "widget-textColor": {
-                        "value": "#111827",
-                        "edited": true
-                    },
-                    "widget-backgroundColor": {
-                        "value": "#1d6f42",
-                        "edited": true
-                    },
-                    "widget-borderColor": {
-                        "value": "#ffffff",
-                        "edited": true
-                    },
-                    "base-font": {
-                        "value": "Gill Sans,Geneva,sans-serif"
-                    }
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": true
                 },
-                "angularTheme": {
-                    "primary": "indigo",
-                    "accents": "blue",
-                    "warn": "red",
-                    "background": "grey",
-                    "palette": "light"
+                "group-textColor": {
+                    "value": "#111827",
+                    "edited": true
+                },
+                "group-borderColor": {
+                    "value": "#e5e7eb",
+                    "edited": true
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": true
+                },
+                "widget-textColor": {
+                    "value": "#111827",
+                    "edited": true
+                },
+                "widget-backgroundColor": {
+                    "value": "#1d6f42",
+                    "edited": true
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": true
+                },
+                "base-font": {
+                    "value": "Gill Sans,Geneva,sans-serif"
                 }
             },
-            "site": {
-                "name": "Node-RED Dashboard",
-                "hideToolbar": "false",
-                "allowSwipe": "false",
-                "lockMenu": "false",
-                "allowTempTheme": "true",
-                "dateFormat": "DD/MM/YYYY",
-                "sizes": {
-                    "sx": 48,
-                    "sy": 28,
-                    "gx": 3,
-                    "gy": 3,
-                    "cx": 3,
-                    "cy": 3,
-                    "px": 0,
-                    "py": 3
-                }
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
             }
         },
-        {
-            "id": "45ed046743f02da0",
-            "type": "gauth",
-            "name": "render-monitoring@monitoring-aktivitas-akustik.iam.gserviceaccount.com"
-        },
-        {
-            "id": "de8774a32ba55c81",
-            "type": "ui_group",
-            "name": "Statistik",
-            "tab": "t1",
-            "order": 2,
-            "disp": true,
-            "width": "18",
-            "collapse": false,
-            "className": ""
-        },
-        {
-            "id": "5e39c80f7390ca07",
-            "type": "ui_group",
-            "name": "Gauge",
-            "tab": "t1",
-            "order": 5,
-            "disp": true,
-            "width": "18",
-            "collapse": false,
-            "className": ""
-        },
-        {
-            "id": "681328a3b18a0696",
-            "type": "ui_group",
-            "name": "Grafik",
-            "tab": "t1",
-            "order": 6,
-            "disp": true,
-            "width": "18",
-            "collapse": false,
-            "className": ""
-        },
-        {
-            "id": "b1cc787b80ebc526",
-            "type": "inject",
-            "z": "4e87f9af348f71da",
-            "name": "Pemicu 5 menit",
-            "props": [
-                {
-                    "p": "payload"
-                },
-                {
-                    "p": "topic",
-                    "vt": "str"
-                }
-            ],
-            "repeat": "300",
-            "crontab": "",
-            "once": true,
-            "onceDelay": "30",
-            "topic": "",
-            "payload": "",
-            "payloadType": "date",
-            "x": 150,
-            "y": 420,
-            "wires": [
-                [
-                    "6034c484d570b447"
-                ]
-            ]
-        },
-        {
-            "id": "f3cb696b040995c0",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Format Waktu",
-            "func": "msg.payload = new Date().toLocaleString('id-ID', {\n    weekday: 'long',  // Nama Hari\n    day: 'numeric',   // Tanggal\n    month: 'long',    // Bulan\n    year: 'numeric',  // Tahun\n    hour: '2-digit',  // Jam\n    minute: '2-digit', // Menit\n    timeZone: 'Asia/Makassar' // Zona Waktu WITA\n});\nreturn msg;",
-            "outputs": 1,
-            "timeout": "",
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 360,
-            "y": 40,
-            "wires": [
-                [
-                    "6279bee704b8740b"
-                ]
-            ]
-        },
-        {
-            "id": "6279bee704b8740b",
-            "type": "ui_template",
-            "z": "4e87f9af348f71da",
-            "group": "g1",
-            "name": "Judul",
-            "order": 1,
-            "width": "18",
-            "height": "3",
-            "format": "<div style=\"text-align: center; width: 100%;\">\n    <h2 style=\"font-weight: bold; margin: 0;\">Status & Riwayat</h2>\n    <h4 style=\"margin: 5px 0;\">{{msg.payload}}</h4>\n</div>",
-            "storeOutMessages": true,
-            "fwdInMessages": true,
-            "resendOnRefresh": true,
-            "templateScope": "local",
-            "className": "",
-            "x": 550,
-            "y": 40,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "9d476bdecd496a2b",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Cek Max",
-            "func": "let max = context.get('max');\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val)) {\n    if (max === undefined || val > max) {\n        max = val;\n        context.set('max', max);\n    }\n}\n\nmsg.payload = max !== undefined ? parseFloat(max.toFixed(1)) : 0;\nglobal.set('max', msg.payload);\nreturn msg;",
-            "outputs": 1,
-            "timeout": "",
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 520,
-            "y": 360,
-            "wires": [
-                [
-                    "1b1fbfecca5d568d"
-                ]
-            ]
-        },
-        {
-            "id": "e00ee5fe2ee3571a",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Hitung Avg",
-            "func": "let sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val)) {\n    sum += val;\n    count += 1;\n    context.set('sum', sum);\n    context.set('count', count);\n}\n\nmsg.payload = count > 0 ? parseFloat((sum / count).toFixed(1)) : 0;\nglobal.set('avg', msg.payload);\nreturn msg;",
-            "outputs": 1,
-            "timeout": "",
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 530,
-            "y": 320,
-            "wires": [
-                [
-                    "9caa5ba9c6554ca9"
-                ]
-            ]
-        },
-        {
-            "id": "08d62671bfde60bd",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Cek Min",
-            "func": "let min = context.get('min');\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val) && val > 0) {\n    if (min === undefined || val < min) {\n        min = val;\n        context.set('min', min);\n    }\n}\n\nmsg.payload = min !== undefined ? parseFloat(min.toFixed(1)) : 0;\nglobal.set('min', msg.payload);\nreturn msg;",
-            "outputs": 1,
-            "timeout": "",
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 520,
-            "y": 280,
-            "wires": [
-                [
-                    "a9e1bc14454c9b48"
-                ]
-            ]
-        },
-        {
-            "id": "da740d4e77854e11",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Ambil dB",
-            "func": "msg.payload = Math.round(msg.payload.dB * 10) / 10;\nreturn msg;",
-            "outputs": 1,
-            "timeout": 0,
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 520,
-            "y": 180,
-            "wires": [
-                [
-                    "1aceda858f1f80a5",
-                    "5bd42decc7db72b6"
-                ]
-            ]
-        },
-        {
-            "id": "1aceda858f1f80a5",
-            "type": "ui_gauge",
-            "z": "4e87f9af348f71da",
-            "name": "",
-            "group": "5e39c80f7390ca07",
-            "order": 6,
-            "width": "18",
-            "height": "5",
-            "gtype": "gage",
-            "title": "Intensitas Bunyi (dB)",
-            "label": "units",
-            "format": "{{value}}",
-            "min": 0,
-            "max": "120",
-            "colors": [
-                "#00b500",
-                "#e6e600",
-                "#ca3838"
-            ],
-            "seg1": "",
-            "seg2": "",
-            "diff": false,
-            "className": "",
-            "x": 780,
-            "y": 140,
-            "wires": []
-        },
-        {
-            "id": "5bd42decc7db72b6",
-            "type": "ui_chart",
-            "z": "4e87f9af348f71da",
-            "name": "",
-            "group": "681328a3b18a0696",
-            "order": 1,
-            "width": "18",
-            "height": "6",
-            "label": "Grafik Intensitas Bunyi (dB)",
-            "chartType": "line",
-            "legend": "false",
-            "xformat": "HH:mm:ss",
-            "interpolate": "linear",
-            "nodata": "",
-            "dot": false,
-            "ymin": "0",
-            "ymax": "120",
-            "removeOlder": 1,
-            "removeOlderPoints": "",
-            "removeOlderUnit": "3600",
-            "cutout": 0,
-            "useOneColor": false,
-            "useUTC": false,
-            "colors": [
-                "#1f77b4",
-                "#aec7e8",
-                "#ff7f0e",
-                "#2ca02c",
-                "#98df8a",
-                "#d62728",
-                "#ff9896",
-                "#9467bd",
-                "#c5b0d5"
-            ],
-            "outputs": 1,
-            "useDifferentColor": false,
-            "className": "",
-            "x": 800,
-            "y": 200,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "db4f32d4d4b65310",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Status",
-            "func": "var db = parseFloat(msg.payload.dB);\nvar status;\n\nif (db < 30) {\n    status = \"Tidak Aktif\";\n} else if (db >= 30 && db <= 70) {\n    status = \"Aktif Normal\";\n} else {\n    status = \"Aktif Bising\";\n}\n\n// Simpan status ke global\nglobal.set('status', status);\nglobal.set('db', db);\n\nmsg.payload = status;\nreturn msg;",
-            "outputs": 1,
-            "timeout": 0,
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 510,
-            "y": 240,
-            "wires": [
-                [
-                    "d107333016c64595"
-                ]
-            ]
-        },
-        {
-            "id": "99e4e8fdde4ba64d",
-            "type": "GSheet",
-            "z": "4e87f9af348f71da",
-            "creds": "45ed046743f02da0",
-            "method": "append",
-            "action": "",
-            "sheet": "1r-rOnM-MQobAlbRmaClj2GKY_4h9eYjHDvdDTfiozMk",
-            "cells": "Sheet1!A:F",
-            "flatten": false,
-            "name": "Google Sheets",
-            "x": 740,
-            "y": 420,
-            "wires": [
-                [
-                    "32a2ccd28f7ca26a"
-                ]
-            ]
-        },
-        {
-            "id": "db893d872bcbc563",
-            "type": "http in",
-            "z": "4e87f9af348f71da",
-            "name": "Terima Data ESP32",
-            "url": "/kirim-data",
-            "method": "post",
-            "upload": false,
-            "swaggerDoc": "",
-            "x": 130,
-            "y": 100,
-            "wires": [
-                [
-                    "4401ec6161341744",
-                    "34fab738e15ca048",
-                    "da740d4e77854e11",
-                    "db4f32d4d4b65310",
-                    "08d62671bfde60bd",
-                    "e00ee5fe2ee3571a",
-                    "9d476bdecd496a2b"
-                ]
-            ]
-        },
-        {
-            "id": "34fab738e15ca048",
-            "type": "http response",
-            "z": "4e87f9af348f71da",
-            "name": "Respon ESP32",
-            "statusCode": "",
-            "headers": {},
-            "x": 540,
-            "y": 100,
-            "wires": []
-        },
-        {
-            "id": "4401ec6161341744",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Pemantau alat",
-            "func": "// Catat waktu terakhir data masuk\nglobal.set('lastSeen', Date.now());\n\n// Set status alat = Aktif\nglobal.set('deviceStatus', 'Aktif');\n\nreturn null;",
-            "outputs": 1,
-            "timeout": 0,
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 540,
-            "y": 140,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "6034c484d570b447",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Cek Status",
-            "func": "var deviceStatus = global.get('deviceStatus');\n\n// Hanya lanjut jika alat aktif\nif (deviceStatus === 'Aktif') {\n    return msg;\n}\n\n// Jika mati, diam saja\nreturn null;",
-            "outputs": 1,
-            "timeout": 0,
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 350,
-            "y": 420,
-            "wires": [
-                [
-                    "9921894b29c7575b"
-                ]
-            ]
-        },
-        {
-            "id": "9921894b29c7575b",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Siapkan Data",
-            "func": "let db = global.get('db') || 0;\nlet status = global.get('status') || 'Tidak Aktif';\nlet min = global.get('min') || 0;\nlet avg = global.get('avg') || 0;\nlet max = global.get('max') || 0;\n\nlet waktu = new Date().toLocaleString('id-ID', {\n    timeZone: 'Asia/Makassar'\n});\n\nmsg.payload = [[waktu, db, status, min, avg, max]];\nreturn msg;",
-            "outputs": 1,
-            "timeout": 0,
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 540,
-            "y": 420,
-            "wires": [
-                [
-                    "99e4e8fdde4ba64d"
-                ]
-            ]
-        },
-        {
-            "id": "32a2ccd28f7ca26a",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Reset Data",
-            "func": "// Reset semua nilai untuk periode berikutnya\nglobal.set('min', 0);\nglobal.set('avg', 0);\nglobal.set('max', 0);\nglobal.set('db', 0);\n\n// Reset context di node Cek Min, Hitung Avg, Cek Max\nflow.set('min', undefined);\nflow.set('sum', undefined);\nflow.set('count', undefined);\nflow.set('max', undefined);\n\nreturn msg;",
-            "outputs": 1,
-            "timeout": 0,
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 930,
-            "y": 420,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "5bfd1593158b28d6",
-            "type": "inject",
-            "z": "4e87f9af348f71da",
-            "name": "Pemicu 2 detik",
-            "props": [
-                {
-                    "p": "payload"
-                },
-                {
-                    "p": "topic",
-                    "vt": "str"
-                }
-            ],
-            "repeat": "2",
-            "crontab": "",
-            "once": true,
-            "onceDelay": "0.1",
-            "topic": "",
-            "payload": "",
-            "payloadType": "date",
-            "x": 140,
-            "y": 40,
-            "wires": [
-                [
-                    "f3cb696b040995c0"
-                ]
-            ]
-        },
-        {
-            "id": "df53fd22efaf0ff6",
-            "type": "inject",
-            "z": "4e87f9af348f71da",
-            "name": "Pemicu 30 detik",
-            "props": [
-                {
-                    "p": "payload"
-                },
-                {
-                    "p": "topic",
-                    "vt": "str"
-                }
-            ],
-            "repeat": "30",
-            "crontab": "",
-            "once": false,
-            "onceDelay": 0.1,
-            "topic": "",
-            "payload": "",
-            "payloadType": "date",
-            "x": 150,
-            "y": 480,
-            "wires": [
-                [
-                    "bcf5c7ed695635f1"
-                ]
-            ]
-        },
-        {
-            "id": "bcf5c7ed695635f1",
-            "type": "function",
-            "z": "4e87f9af348f71da",
-            "name": "Cek Pemantau Alat",
-            "func": "let lastSeen = global.get('lastSeen');\nlet deviceStatus = global.get('deviceStatus');\nlet now = Date.now();\n\n// Cek apakah sudah lebih dari 30 detik tidak ada data\nif (lastSeen && (now - lastSeen) > 30000 && deviceStatus !== 'Alat Mati') {\n\n    // Set status alat = Alat Mati\n    global.set('deviceStatus', 'Alat Mati');\n\n    let waktu = new Date().toLocaleString('id-ID', {\n        timeZone: 'Asia/Makassar'\n    });\n\n    msg.payload = [[waktu, '-', 'Alat Mati', '-', '-', '-']];\n    return msg;\n}\n\nreturn null;",
-            "outputs": 1,
-            "timeout": 0,
-            "noerr": 0,
-            "initialize": "",
-            "finalize": "",
-            "libs": [],
-            "x": 550,
-            "y": 480,
-            "wires": [
-                [
-                    "99e4e8fdde4ba64d"
-                ]
-            ]
-        },
-        {
-            "id": "4bf99728ba82be86",
-            "type": "ui_template",
-            "z": "4e87f9af348f71da",
-            "group": "681328a3b18a0696",
-            "name": "Style Global",
-            "order": 2,
-            "width": 0,
-            "height": 0,
-            "format": "<style>\n    /* Desain Kotak Gradasi Hijau */\n    .widget-gradasi-hijau {\n        background: linear-gradient(135deg, #0A3D22 0%, #1D6F42 40%, #4BD186 100%) !important;\n        color: #ffffff !important;\n        border-radius: 8px !important;\n        padding: 4px !important;\n        text-align: center !important;\n        font-family: 'Segoe UI', sans-serif !important;\n        display: flex !important;\n        flex-direction: column !important;\n        justify-content: center !important;\n        align-items: center !important;\n        height: 100% !important;\n        overflow: hidden !important;\n        box-sizing: border-box !important;\n    }\n\n    /* Ukuran Label (Status, Min, Avg, dan Max) */\n    .label-widget {\n        font-size: 12px !important;\n        font-weight: bold !important;\n        text-transform: uppercase !important;\n        margin-bottom: 2px !important;\n        opacity: 0.9 !important;\n    }\n\n    /* Ukuran Angka/Data (Payload) */\n    .data-widget {\n        font-size: 16px !important;\n        font-weight: bold !important;\n    }\n</style>",
-            "storeOutMessages": true,
-            "fwdInMessages": true,
-            "resendOnRefresh": true,
-            "templateScope": "global",
-            "className": "",
-            "x": 110,
-            "y": 560,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "a9e1bc14454c9b48",
-            "type": "ui_template",
-            "z": "4e87f9af348f71da",
-            "group": "de8774a32ba55c81",
-            "name": "Min",
-            "order": 1,
-            "width": "6",
-            "height": "2",
-            "format": "<div class=\"widget-gradasi-hijau\">\n    <div style=\"font-size: 11px; text-transform: uppercase; font-weight: bold; margin-bottom: 2px;\">MIN :</div>\n    <div style=\"font-size: 16px; font-weight: bold;\">{{msg.payload}} dB</div>\n</div>",
-            "storeOutMessages": true,
-            "fwdInMessages": true,
-            "resendOnRefresh": true,
-            "templateScope": "local",
-            "className": "",
-            "x": 690,
-            "y": 280,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "9caa5ba9c6554ca9",
-            "type": "ui_template",
-            "z": "4e87f9af348f71da",
-            "group": "de8774a32ba55c81",
-            "name": "Avg",
-            "order": 2,
-            "width": "6",
-            "height": "2",
-            "format": "<div class=\"widget-gradasi-hijau\">\n    <div style=\"font-size: 11px; text-transform: uppercase; font-weight: bold; margin-bottom: 2px;\">AVG :</div>\n    <div style=\"font-size: 16px; font-weight: bold;\">{{msg.payload}} dB</div>\n</div>",
-            "storeOutMessages": true,
-            "fwdInMessages": true,
-            "resendOnRefresh": true,
-            "templateScope": "local",
-            "className": "",
-            "x": 690,
-            "y": 320,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "1b1fbfecca5d568d",
-            "type": "ui_template",
-            "z": "4e87f9af348f71da",
-            "group": "de8774a32ba55c81",
-            "name": "Max",
-            "order": 3,
-            "width": "6",
-            "height": "2",
-            "format": "<div class=\"widget-gradasi-hijau\">\n    <div style=\"font-size: 11px; text-transform: uppercase; font-weight: bold; margin-bottom: 2px;\">MAX :</div>\n    <div style=\"font-size: 16px; font-weight: bold;\">{{msg.payload}} dB</div>\n</div>",
-            "storeOutMessages": true,
-            "fwdInMessages": true,
-            "resendOnRefresh": true,
-            "templateScope": "local",
-            "className": "",
-            "x": 690,
-            "y": 360,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "f7a6bc805f416f2e",
-            "type": "ui_template",
-            "z": "4e87f9af348f71da",
-            "group": "g1",
-            "name": "Lihat Data di Google Sheets",
-            "order": 3,
-            "width": "9",
-            "height": "2",
-            "format": "<a href=\"https://docs.google.com/spreadsheets/d/1r-rOnM-MQobAlbRmaClj2GKY_4h9eYjHDvdDTfiozMk/edit?gid=0#gid=0\" \n   target=\"_blank\" \n   class=\"widget-gradasi-hijau\" \n   style=\"text-decoration: none !important; color: white !important; font-size: 14px !important; font-weight: bold !important; text-transform: uppercase !important;\">\n    📊LIHAT DATA DI GOOGLE SHEETS\n</a>",
-            "storeOutMessages": true,
-            "fwdInMessages": true,
-            "resendOnRefresh": true,
-            "templateScope": "local",
-            "className": "",
-            "x": 160,
-            "y": 600,
-            "wires": [
-                []
-            ]
-        },
-        {
-            "id": "d107333016c64595",
-            "type": "ui_template",
-            "z": "4e87f9af348f71da",
-            "group": "g1",
-            "name": "Status",
-            "order": 2,
-            "width": "9",
-            "height": "2",
-            "format": "<div class=\"widget-gradasi-hijau\"\n    style=\"height: 100% !important; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n    <div style=\"font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;\">STATUS :</div>\n    <div style=\"font-size: 18px; font-weight: bold;\">{{msg.payload}}</div>\n</div>",
-            "storeOutMessages": true,
-            "fwdInMessages": true,
-            "resendOnRefresh": true,
-            "templateScope": "local",
-            "className": "",
-            "x": 690,
-            "y": 240,
-            "wires": [
-                []
-            ]
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 28,
+                "gx": 3,
+                "gy": 3,
+                "cx": 3,
+                "cy": 3,
+                "px": 0,
+                "py": 0
+            }
         }
-    ]
+    },
+    {
+        "id": "45ed046743f02da0",
+        "type": "gauth",
+        "name": "render-monitoring@monitoring-aktivitas-akustik.iam.gserviceaccount.com"
+    },
+    {
+        "id": "de8774a32ba55c81",
+        "type": "ui_group",
+        "name": "Statistik",
+        "tab": "t1",
+        "order": 2,
+        "disp": true,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5e39c80f7390ca07",
+        "type": "ui_group",
+        "name": "Intensitas Bunyi (dB)",
+        "tab": "t1",
+        "order": 5,
+        "disp": true,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "681328a3b18a0696",
+        "type": "ui_group",
+        "name": "Grafik",
+        "tab": "t1",
+        "order": 6,
+        "disp": false,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b1cc787b80ebc526",
+        "type": "inject",
+        "z": "4e87f9af348f71da",
+        "name": "Pemicu 5 menit",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "30",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "6034c484d570b447"
+            ]
+        ]
+    },
+    {
+        "id": "f3cb696b040995c0",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Format Waktu",
+        "func": "msg.payload = new Date().toLocaleString('id-ID', {\n    weekday: 'long',  // Nama Hari\n    day: 'numeric',   // Tanggal\n    month: 'long',    // Bulan\n    year: 'numeric',  // Tahun\n    hour: '2-digit',  // Jam\n    minute: '2-digit', // Menit\n    timeZone: 'Asia/Makassar' // Zona Waktu WITA\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 40,
+        "wires": [
+            [
+                "6279bee704b8740b"
+            ]
+        ]
+    },
+    {
+        "id": "6279bee704b8740b",
+        "type": "ui_template",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "name": "Judul",
+        "order": 1,
+        "width": "18",
+        "height": "3",
+        "format": "<div style=\"text-align: center; width: 100%; padding-top: 10px;\">\n    <h2 style=\"font-weight: bold; margin: 0;\">Status & Data</h2>\n    <h4 style=\"margin: 5px 0;\">{{msg.payload}}</h4>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 550,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d476bdecd496a2b",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Cek Max",
+        "func": "let max = context.get('max');\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val)) {\n    if (max === undefined || val > max) {\n        max = val;\n        context.set('max', max);\n    }\n}\n\nmsg.payload = max !== undefined ? parseFloat(max.toFixed(1)) : 0;\nglobal.set('max', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 360,
+        "wires": [
+            [
+                "1b1fbfecca5d568d"
+            ]
+        ]
+    },
+    {
+        "id": "e00ee5fe2ee3571a",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Hitung Avg",
+        "func": "let sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val)) {\n    sum += val;\n    count += 1;\n    context.set('sum', sum);\n    context.set('count', count);\n}\n\nmsg.payload = count > 0 ? parseFloat((sum / count).toFixed(1)) : 0;\nglobal.set('avg', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "9caa5ba9c6554ca9"
+            ]
+        ]
+    },
+    {
+        "id": "08d62671bfde60bd",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Cek Min",
+        "func": "let min = context.get('min');\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val) && val > 0) {\n    if (min === undefined || val < min) {\n        min = val;\n        context.set('min', min);\n    }\n}\n\nmsg.payload = min !== undefined ? parseFloat(min.toFixed(1)) : 0;\nglobal.set('min', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "a9e1bc14454c9b48"
+            ]
+        ]
+    },
+    {
+        "id": "da740d4e77854e11",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Ambil dB",
+        "func": "msg.payload = Math.round(msg.payload.dB * 10) / 10;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 180,
+        "wires": [
+            [
+                "1aceda858f1f80a5",
+                "5bd42decc7db72b6"
+            ]
+        ]
+    },
+    {
+        "id": "1aceda858f1f80a5",
+        "type": "ui_gauge",
+        "z": "4e87f9af348f71da",
+        "name": "",
+        "group": "5e39c80f7390ca07",
+        "order": 6,
+        "width": "18",
+        "height": "5",
+        "gtype": "gage",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "120",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5bd42decc7db72b6",
+        "type": "ui_chart",
+        "z": "4e87f9af348f71da",
+        "name": "",
+        "group": "681328a3b18a0696",
+        "order": 1,
+        "width": "18",
+        "height": "8",
+        "label": "Riwayat Intensitas Bunyi ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "120",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "db4f32d4d4b65310",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Status",
+        "func": "var db = parseFloat(msg.payload.dB);\nvar status;\n\nif (db < 30) {\n    status = \"Tidak Aktif\";\n} else if (db >= 30 && db <= 70) {\n    status = \"Aktif Normal\";\n} else {\n    status = \"Aktif Bising\";\n}\n\n// Simpan status ke global\nglobal.set('status', status);\nglobal.set('db', db);\n\nmsg.payload = status;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 240,
+        "wires": [
+            [
+                "d107333016c64595"
+            ]
+        ]
+    },
+    {
+        "id": "99e4e8fdde4ba64d",
+        "type": "GSheet",
+        "z": "4e87f9af348f71da",
+        "creds": "45ed046743f02da0",
+        "method": "append",
+        "action": "",
+        "sheet": "1r-rOnM-MQobAlbRmaClj2GKY_4h9eYjHDvdDTfiozMk",
+        "cells": "Sheet1!A:F",
+        "flatten": false,
+        "name": "Google Sheets",
+        "x": 740,
+        "y": 420,
+        "wires": [
+            [
+                "32a2ccd28f7ca26a"
+            ]
+        ]
+    },
+    {
+        "id": "db893d872bcbc563",
+        "type": "http in",
+        "z": "4e87f9af348f71da",
+        "name": "Terima Data ESP32",
+        "url": "/kirim-data",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "4401ec6161341744",
+                "34fab738e15ca048",
+                "da740d4e77854e11",
+                "db4f32d4d4b65310",
+                "08d62671bfde60bd",
+                "e00ee5fe2ee3571a",
+                "9d476bdecd496a2b"
+            ]
+        ]
+    },
+    {
+        "id": "34fab738e15ca048",
+        "type": "http response",
+        "z": "4e87f9af348f71da",
+        "name": "Respon ESP32",
+        "statusCode": "",
+        "headers": {},
+        "x": 540,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "4401ec6161341744",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Pemantau alat",
+        "func": "// Catat waktu terakhir data masuk\nglobal.set('lastSeen', Date.now());\n\n// Set status alat = Aktif\nglobal.set('deviceStatus', 'Aktif');\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6034c484d570b447",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Cek Status",
+        "func": "var deviceStatus = global.get('deviceStatus');\n\n// Hanya lanjut jika alat aktif\nif (deviceStatus === 'Aktif') {\n    return msg;\n}\n\n// Jika mati, diam saja\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 420,
+        "wires": [
+            [
+                "9921894b29c7575b"
+            ]
+        ]
+    },
+    {
+        "id": "9921894b29c7575b",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Siapkan Data",
+        "func": "let db = global.get('db') || 0;\nlet status = global.get('status') || 'Tidak Aktif';\nlet min = global.get('min') || 0;\nlet avg = global.get('avg') || 0;\nlet max = global.get('max') || 0;\n\nlet waktu = new Date().toLocaleString('id-ID', {\n    timeZone: 'Asia/Makassar'\n});\n\nmsg.payload = [[waktu, db, status, min, avg, max]];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "99e4e8fdde4ba64d"
+            ]
+        ]
+    },
+    {
+        "id": "32a2ccd28f7ca26a",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Reset Data",
+        "func": "// Reset semua nilai untuk periode berikutnya\nglobal.set('min', 0);\nglobal.set('avg', 0);\nglobal.set('max', 0);\nglobal.set('db', 0);\n\n// Reset context di node Cek Min, Hitung Avg, Cek Max\nflow.set('min', undefined);\nflow.set('sum', undefined);\nflow.set('count', undefined);\nflow.set('max', undefined);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5bfd1593158b28d6",
+        "type": "inject",
+        "z": "4e87f9af348f71da",
+        "name": "Pemicu 2 detik",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 40,
+        "wires": [
+            [
+                "f3cb696b040995c0"
+            ]
+        ]
+    },
+    {
+        "id": "df53fd22efaf0ff6",
+        "type": "inject",
+        "z": "4e87f9af348f71da",
+        "name": "Pemicu 30 detik",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "bcf5c7ed695635f1"
+            ]
+        ]
+    },
+    {
+        "id": "bcf5c7ed695635f1",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Cek Pemantau Alat",
+        "func": "let lastSeen = global.get('lastSeen');\nlet deviceStatus = global.get('deviceStatus');\nlet now = Date.now();\n\n// Cek apakah sudah lebih dari 30 detik tidak ada data\nif (lastSeen && (now - lastSeen) > 30000 && deviceStatus !== 'Alat Mati') {\n\n    // Set status alat = Alat Mati\n    global.set('deviceStatus', 'Alat Mati');\n\n    let waktu = new Date().toLocaleString('id-ID', {\n        timeZone: 'Asia/Makassar'\n    });\n\n    msg.payload = [[waktu, '-', 'Alat Mati', '-', '-', '-']];\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 480,
+        "wires": [
+            [
+                "99e4e8fdde4ba64d"
+            ]
+        ]
+    },
+    {
+        "id": "4bf99728ba82be86",
+        "type": "ui_template",
+        "z": "4e87f9af348f71da",
+        "group": "681328a3b18a0696",
+        "name": "Style Global",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    /* Desain Kotak Gradasi Hijau */\n    .widget-gradasi-hijau {\n        background: linear-gradient(135deg, #0A3D22 0%, #1D6F42 40%, #4BD186 100%) !important;\n        color: #ffffff !important;\n        border-radius: 8px !important;\n        padding: 4px !important;\n        text-align: center !important;\n        font-family: 'Segoe UI', sans-serif !important;\n        display: flex !important;\n        flex-direction: column !important;\n        justify-content: center !important;\n        align-items: center !important;\n        height: 100% !important;\n        overflow: hidden !important;\n        box-sizing: border-box !important;\n    }\n\n    /* Ukuran Label (Status, Min, Avg, dan Max) */\n    .label-widget {\n        font-size: 12px !important;\n        font-weight: bold !important;\n        text-transform: uppercase !important;\n        margin-bottom: 2px !important;\n        opacity: 0.9 !important;\n    }\n\n    /* Ukuran Angka/Data (Payload) */\n    .data-widget {\n        font-size: 16px !important;\n        font-weight: bold !important;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9e1bc14454c9b48",
+        "type": "ui_template",
+        "z": "4e87f9af348f71da",
+        "group": "de8774a32ba55c81",
+        "name": "Min",
+        "order": 1,
+        "width": "6",
+        "height": "2",
+        "format": "<div class=\"widget-gradasi-hijau\">\n    <div style=\"font-size: 11px; text-transform: uppercase; font-weight: bold; margin-bottom: 2px;\">MIN :</div>\n    <div style=\"font-size: 16px; font-weight: bold;\">{{msg.payload}} dB</div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9caa5ba9c6554ca9",
+        "type": "ui_template",
+        "z": "4e87f9af348f71da",
+        "group": "de8774a32ba55c81",
+        "name": "Avg",
+        "order": 2,
+        "width": "6",
+        "height": "2",
+        "format": "<div class=\"widget-gradasi-hijau\">\n    <div style=\"font-size: 11px; text-transform: uppercase; font-weight: bold; margin-bottom: 2px;\">AVG :</div>\n    <div style=\"font-size: 16px; font-weight: bold;\">{{msg.payload}} dB</div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1b1fbfecca5d568d",
+        "type": "ui_template",
+        "z": "4e87f9af348f71da",
+        "group": "de8774a32ba55c81",
+        "name": "Max",
+        "order": 3,
+        "width": "6",
+        "height": "2",
+        "format": "<div class=\"widget-gradasi-hijau\">\n    <div style=\"font-size: 11px; text-transform: uppercase; font-weight: bold; margin-bottom: 2px;\">MAX :</div>\n    <div style=\"font-size: 16px; font-weight: bold;\">{{msg.payload}} dB</div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7a6bc805f416f2e",
+        "type": "ui_template",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "name": "Lihat Data di Google Sheets",
+        "order": 3,
+        "width": "9",
+        "height": "2",
+        "format": "<a href=\"https://docs.google.com/spreadsheets/d/1r-rOnM-MQobAlbRmaClj2GKY_4h9eYjHDvdDTfiozMk/edit?gid=0#gid=0\" \n   target=\"_blank\" \n   class=\"widget-gradasi-hijau\" \n   style=\"text-decoration: none !important; color: white !important; font-size: 14px !important; font-weight: bold !important; text-transform: uppercase !important;\">\n    📊LIHAT DATA DI GOOGLE SHEETS\n</a>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d107333016c64595",
+        "type": "ui_template",
+        "z": "4e87f9af348f71da",
+        "group": "g1",
+        "name": "Status",
+        "order": 2,
+        "width": "9",
+        "height": "2",
+        "format": "<div class=\"widget-gradasi-hijau\"\n    style=\"height: 100% !important; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n    <div style=\"font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;\">STATUS :</div>\n    <div style=\"font-size: 18px; font-weight: bold;\">{{msg.payload}}</div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    }
+]
