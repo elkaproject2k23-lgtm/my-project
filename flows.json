@@ -144,7 +144,7 @@
     {
         "id": "5e39c80f7390ca07",
         "type": "ui_group",
-        "name": "Intensitas Bunyi (dB)",
+        "name": "Tingkat Tekanan Suara (dB)",
         "tab": "t1",
         "order": 5,
         "disp": true,
@@ -335,7 +335,7 @@
         "order": 1,
         "width": "18",
         "height": "8",
-        "label": "Riwayat Intensitas Bunyi ",
+        "label": "Riwayat Tingkat Tekanan Suara",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
@@ -364,7 +364,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 570,
+        "x": 590,
         "y": 220,
         "wires": [
             []
