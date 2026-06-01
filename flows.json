@@ -238,7 +238,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Max",
-        "func": "let max = context.get('max');\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val)) {\n    if (max === undefined || val > max) {\n        max = val;\n        context.set('max', max);\n    }\n}\n\nmsg.payload = max !== undefined ? parseFloat(max.toFixed(1)) : 0;\nglobal.set('max', msg.payload);\nreturn msg;",
+        "func": "msg.payload = msg.max;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -246,30 +246,10 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 360,
+        "y": 380,
         "wires": [
             [
                 "1b1fbfecca5d568d"
-            ]
-        ]
-    },
-    {
-        "id": "e00ee5fe2ee3571a",
-        "type": "function",
-        "z": "4e87f9af348f71da",
-        "name": "Hitung Avg",
-        "func": "let sum = context.get('sum') || 0;\nlet count = context.get('count') || 0;\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val)) {\n    sum += val;\n    count += 1;\n    context.set('sum', sum);\n    context.set('count', count);\n}\n\nmsg.payload = count > 0 ? parseFloat((sum / count).toFixed(1)) : 0;\nglobal.set('avg', msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 320,
-        "wires": [
-            [
-                "9caa5ba9c6554ca9"
             ]
         ]
     },
@@ -278,7 +258,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Min",
-        "func": "let min = context.get('min');\nlet val = parseFloat(msg.payload.dB);\n\nif (!isNaN(val) && val > 0) {\n    if (min === undefined || val < min) {\n        min = val;\n        context.set('min', min);\n    }\n}\n\nmsg.payload = min !== undefined ? parseFloat(min.toFixed(1)) : 0;\nglobal.set('min', msg.payload);\nreturn msg;",
+        "func": "msg.payload = msg.min;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -286,7 +266,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 280,
+        "y": 300,
         "wires": [
             [
                 "a9e1bc14454c9b48"
@@ -298,19 +278,23 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Ambil dB",
-        "func": "msg.payload = Math.round(msg.payload.dB * 10) / 10;\nreturn msg;",
+        "func": "// Simpan semua nilai ke msg terpisah\nmsg.db     = msg.payload.dB;\nmsg.status = msg.payload.status;\nmsg.min    = msg.payload.min;\nmsg.avg    = msg.payload.avg;\nmsg.max    = msg.payload.max;\n\n// Simpan ke global untuk Siapkan Data\nglobal.set('db', msg.db);\nglobal.set('status', msg.status);\nglobal.set('min', msg.min);\nglobal.set('avg', msg.avg);\nglobal.set('max', msg.max);\n\n// Teruskan dB untuk gauge dan grafik\nmsg.payload = msg.payload.dB;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
+        "x": 340,
         "y": 180,
         "wires": [
             [
                 "1aceda858f1f80a5",
-                "5bd42decc7db72b6"
+                "5bd42decc7db72b6",
+                "db4f32d4d4b65310",
+                "08d62671bfde60bd",
+                "e00ee5fe2ee3571a",
+                "9d476bdecd496a2b"
             ]
         ]
     },
@@ -338,8 +322,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 730,
-        "y": 140,
+        "x": 510,
+        "y": 180,
         "wires": []
     },
     {
@@ -380,8 +364,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 790,
-        "y": 200,
+        "x": 570,
+        "y": 220,
         "wires": [
             []
         ]
@@ -391,7 +375,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Status",
-        "func": "var db = parseFloat(msg.payload.dB);\nvar status;\n\nif (db < 30) {\n    status = \"Tidak Aktif\";\n} else if (db >= 30 && db <= 70) {\n    status = \"Aktif Normal\";\n} else {\n    status = \"Aktif Bising\";\n}\n\n// Simpan status ke global\nglobal.set('status', status);\nglobal.set('db', db);\n\nmsg.payload = status;\nreturn msg;",
+        "func": "msg.payload = msg.status;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -399,7 +383,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 240,
+        "y": 260,
         "wires": [
             [
                 "d107333016c64595"
@@ -440,11 +424,7 @@
             [
                 "4401ec6161341744",
                 "34fab738e15ca048",
-                "da740d4e77854e11",
-                "db4f32d4d4b65310",
-                "08d62671bfde60bd",
-                "e00ee5fe2ee3571a",
-                "9d476bdecd496a2b"
+                "da740d4e77854e11"
             ]
         ]
     },
@@ -455,7 +435,7 @@
         "name": "Respon ESP32",
         "statusCode": "",
         "headers": {},
-        "x": 540,
+        "x": 360,
         "y": 100,
         "wires": []
     },
@@ -471,7 +451,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
+        "x": 360,
         "y": 140,
         "wires": [
             []
@@ -502,7 +482,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Siapkan Data",
-        "func": "let db = global.get('db') || 0;\nlet status = global.get('status') || 'Tidak Aktif';\nlet min = global.get('min') || 0;\nlet avg = global.get('avg') || 0;\nlet max = global.get('max') || 0;\n\nlet waktu = new Date().toLocaleString('id-ID', {\n    timeZone: 'Asia/Makassar'\n});\n\nmsg.payload = [[waktu, db, status, min, avg, max]];\nreturn msg;",
+        "func": "let db     = global.get('db') || 0;\nlet status = global.get('status') || 'Tidak Aktif';\nlet min    = global.get('min') || 0;\nlet avg    = global.get('avg') || 0;\nlet max    = global.get('max') || 0;\n\nlet waktu = new Date().toLocaleString('id-ID', {\n    timeZone: 'Asia/Makassar'\n});\n\nmsg.payload = [[waktu, db, status, min, avg, max]];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -522,7 +502,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Reset Data",
-        "func": "// Reset semua nilai untuk periode berikutnya\nglobal.set('min', 0);\nglobal.set('avg', 0);\nglobal.set('max', 0);\nglobal.set('db', 0);\n\n// Reset context di node Cek Min, Hitung Avg, Cek Max\nflow.set('min', undefined);\nflow.set('sum', undefined);\nflow.set('count', undefined);\nflow.set('max', undefined);\n\nreturn msg;",
+        "func": "// Reset semua nilai untuk periode berikutnya\nglobal.set('min', 0);\nglobal.set('avg', 0);\nglobal.set('max', 0);\nglobal.set('db', 0);\nglobal.set('status', 'Tidak Aktif');\n\n// Reset context di node Cek Min, Hitung Avg, Cek Max\nflow.set('min', undefined);\nflow.set('sum', undefined);\nflow.set('count', undefined);\nflow.set('max', undefined);\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -650,7 +630,7 @@
         "templateScope": "local",
         "className": "",
         "x": 690,
-        "y": 280,
+        "y": 300,
         "wires": [
             []
         ]
@@ -671,7 +651,7 @@
         "templateScope": "local",
         "className": "",
         "x": 690,
-        "y": 320,
+        "y": 340,
         "wires": [
             []
         ]
@@ -692,7 +672,7 @@
         "templateScope": "local",
         "className": "",
         "x": 690,
-        "y": 360,
+        "y": 380,
         "wires": [
             []
         ]
@@ -734,9 +714,29 @@
         "templateScope": "local",
         "className": "",
         "x": 690,
-        "y": 240,
+        "y": 260,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "e00ee5fe2ee3571a",
+        "type": "function",
+        "z": "4e87f9af348f71da",
+        "name": "Hitung Avg",
+        "func": "msg.payload = msg.avg;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 340,
+        "wires": [
+            [
+                "9caa5ba9c6554ca9"
+            ]
         ]
     }
 ]
