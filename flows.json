@@ -185,7 +185,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "6034c484d570b447"
@@ -401,12 +401,10 @@
         "cells": "Sheet1!A:F",
         "flatten": false,
         "name": "Google Sheets",
-        "x": 740,
-        "y": 420,
+        "x": 760,
+        "y": 480,
         "wires": [
-            [
-                "32a2ccd28f7ca26a"
-            ]
+            []
         ]
     },
     {
@@ -462,7 +460,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Status",
-        "func": "var deviceStatus = global.get('deviceStatus');\n\n// Hanya lanjut jika alat aktif\nif (deviceStatus === 'Aktif') {\n    return msg;\n}\n\n// Jika mati, diam saja\nreturn null;",
+        "func": "var deviceStatus = global.get('deviceStatus');\n\n// Lanjut jika alat aktif ATAU status belum diketahui\nif (deviceStatus === 'Aktif' || deviceStatus === undefined || deviceStatus === null) {\n    return msg;\n}\n\n// Jika jelas-jelas mati, diam saja\nreturn null;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -470,7 +468,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "9921894b29c7575b"
@@ -490,29 +488,11 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "99e4e8fdde4ba64d"
             ]
-        ]
-    },
-    {
-        "id": "32a2ccd28f7ca26a",
-        "type": "function",
-        "z": "4e87f9af348f71da",
-        "name": "Reset Data",
-        "func": "// Reset semua nilai untuk periode berikutnya\nglobal.set('min', 0);\nglobal.set('avg', 0);\nglobal.set('max', 0);\nglobal.set('db', 0);\nglobal.set('status', 'Tidak Aktif');\n\n// Reset context di node Cek Min, Hitung Avg, Cek Max\nflow.set('min', undefined);\nflow.set('sum', undefined);\nflow.set('count', undefined);\nflow.set('max', undefined);\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 420,
-        "wires": [
-            []
         ]
     },
     {
@@ -566,7 +546,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "bcf5c7ed695635f1"
@@ -578,7 +558,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Pemantau Alat",
-        "func": "let lastSeen = global.get('lastSeen');\nlet deviceStatus = global.get('deviceStatus');\nlet now = Date.now();\n\n// Cek apakah sudah lebih dari 30 detik tidak ada data\nif (lastSeen && (now - lastSeen) > 30000 && deviceStatus !== 'Alat Mati') {\n\n    // Set status alat = Alat Mati\n    global.set('deviceStatus', 'Alat Mati');\n\n    let waktu = new Date().toLocaleString('id-ID', {\n        timeZone: 'Asia/Makassar'\n    });\n\n    msg.payload = [[waktu, '-', 'Alat Mati', '-', '-', '-']];\n    return msg;\n}\n\nreturn null;",
+        "func": "let lastSeen = global.get('lastSeen');\nlet deviceStatus = global.get('deviceStatus');\nlet now = Date.now();\n\n// Cek apakah sudah lebih dari 30 detik tidak ada data\nif (lastSeen && (now - lastSeen) > 30000 && deviceStatus !== 'ALAT MATI') {\n\n    // Set status alat = Alat Mati\n    global.set('deviceStatus', 'Alat Mati');\n\n    let waktu = new Date().toLocaleString('id-ID', {\n        timeZone: 'Asia/Makassar'\n    });\n\n    msg.payload = [[waktu, '-', 'Alat Mati', '-', '-', '-']];\n    return msg;\n}\n\nreturn null;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -586,7 +566,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "99e4e8fdde4ba64d"
@@ -609,7 +589,7 @@
         "templateScope": "global",
         "className": "",
         "x": 110,
-        "y": 560,
+        "y": 580,
         "wires": [
             []
         ]
@@ -693,7 +673,7 @@
         "templateScope": "local",
         "className": "",
         "x": 160,
-        "y": 600,
+        "y": 620,
         "wires": [
             []
         ]
