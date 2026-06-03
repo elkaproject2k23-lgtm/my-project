@@ -558,7 +558,7 @@
         "type": "function",
         "z": "4e87f9af348f71da",
         "name": "Cek Pemantau Alat",
-        "func": "let lastSeen = global.get('lastSeen');\nlet deviceStatus = global.get('deviceStatus');\nlet now = Date.now();\n\n// Cek apakah sudah lebih dari 2 menit tidak ada data\nif (lastSeen && (now - lastSeen) > 120000 && deviceStatus !== 'ALAT MATI') {\n\n    // Set status alat = Alat Mati\n    global.set('deviceStatus', 'Alat Mati');\n\n    let waktu = new Date().toLocaleString('id-ID', {\n        timeZone: 'Asia/Makassar'\n    });\n\n    msg.payload = [[waktu, '-', 'Alat Mati', '-', '-', '-']];\n    return msg;\n}\n\nreturn null;",
+        "func": "let lastSeen = global.get('lastSeen');\nlet deviceStatus = global.get('deviceStatus');\nlet now = Date.now();\n\n// Cek apakah sudah lebih dari 2 menit tidak ada data\nif (lastSeen && (now - lastSeen) > 120000 && deviceStatus !== 'ALAT MATI') {\n\n    // Set status alat = Alat Mati\n    global.set('deviceStatus', 'ALAT MATI');\n\n    let waktu = new Date().toLocaleString('id-ID', {\n        timeZone: 'Asia/Makassar'\n    });\n\n    msg.payload = [[waktu, '-', 'Alat Mati', '-', '-', '-']];\n    return msg;\n}\n\nreturn null;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
